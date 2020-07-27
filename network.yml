@@ -300,7 +300,7 @@ Resources:
             sudo pip install awscli
             sudo aws s3 cp s3://${s3bucket}/ /var/www/html/ --recursive
 
-        ImageId: "ami-009000e9f11345d51"
+        ImageId: "ami-0c1cc4a36c6ff6967"
         KeyName: app
         SecurityGroups:
         - !Ref WebServerSecGroup
