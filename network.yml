@@ -301,10 +301,10 @@ Resources:
             sudo aws s3 cp s3://${s3bucket}/ /var/www/html/ --recursive
 
         ImageId: "ami-0c1cc4a36c6ff6967"
-        KeyName: app
+        KeyName: virginia
         SecurityGroups:
         - !Ref WebServerSecGroup
-        InstanceType: "t2.medium"
+        InstanceType: "t3.medium"
         BlockDeviceMappings:
         - DeviceName: "/dev/sdk"
           Ebs:
