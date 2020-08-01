@@ -279,7 +279,7 @@ Resources:
       IamInstanceProfile: !Ref InstanceProfile
       InstanceMonitoring: false
       InstanceType: "t2.medium"
-      LaunchConfigurationName: "Mariko1-udagram-lg"
+      LaunchConfigurationName: "Mariko1-launchgroup"
       SecurityGroups:
         - !Ref WebServerSecGroup
       UserData:
@@ -303,7 +303,7 @@ Resources:
   Mariko1ASG:
     Type: "AWS::AutoScaling::AutoScalingGroup"
     Properties:
-      AutoScalingGroupName: "Mariko1-udagram-asg"
+      AutoScalingGroupName: "Mariko1-autogroup"
       LaunchConfigurationName: !Ref Mariko1LaunchConfiguration
 #      LoadBalancerNames:
 #        - !Ref Mariko1ALB
@@ -319,7 +319,7 @@ Resources:
           Key: "Project"
           Value: "Mariko1"
           PropagateAtLaunch: true
-          ResourceId: "Mariko1-udagram-asg"
+          ResourceId: "Mariko1-autogroup"
       VPCZoneIdentifier:
         - !Ref Mariko1PrivateSubnet1
         - !Ref Mariko1PrivateSubnet2
@@ -370,7 +370,7 @@ Resources:
       HealthyThresholdCount: 5
       Matcher:
         HttpCode: "200"
-      Name: "udagram-target-group"
+      Name: "mariko-target-group"
       Port: 80
       Protocol: "HTTP"
       TargetType: "instance"
